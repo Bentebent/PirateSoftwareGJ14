@@ -26,3 +26,4 @@ mono_crash.*.json
 
 # Built Visual Studio Code Extensions
 *.vsix
+.dev/
