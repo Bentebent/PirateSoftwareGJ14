@@ -12,5 +12,12 @@ material_override = ExtResource("1_cbv25")
 use_collision = true
 size = Vector3(50, 0.1, 50)
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(0.874411, -0.103052, -0.474116, 0.296821, 0.886608, 0.354717, 0.383801, -0.450896, 0.805848, 0, 6.33679, -12.2091)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World"]
+transform = Transform3D(0.807825, 0, 0.589422, 0, 1, 0, -0.589422, 0, 0.807825, -2.97658, 0.692691, -7.39418)
+
 [node name="Player" parent="." instance=ExtResource("2_uanbm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010519, 0.00858581, -0.00252104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010519, 0.219375, -0.00252104)

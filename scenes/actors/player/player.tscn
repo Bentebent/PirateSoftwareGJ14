@@ -1,17 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://v67hv5oqxtuk"]
+[gd_scene load_steps=6 format=3 uid="uid://v67hv5oqxtuk"]
 
 [ext_resource type="Script" path="res://scenes/actors/player/Player.cs" id="1_lcymy"]
-[ext_resource type="Script" path="res://scenes/actors/player/MovementComponent.cs" id="2_quiql"]
+[ext_resource type="Script" path="res://scenes/actors/player/PlayerMovementComponent.cs" id="2_bb46t"]
+[ext_resource type="Script" path="res://scenes/actors/player/PlayerCameraComponent.cs" id="3_7q7u4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tcg8s"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_o2amt"]
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_lcymy")
-
-[node name="Components" type="Node" parent="."]
-
-[node name="MovementComponent" type="Node" parent="Components"]
-script = ExtResource("2_quiql")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -19,3 +17,24 @@ shape = SubResource("CapsuleShape3D_tcg8s")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62261, 0)
+fov = 90.0
+
+[node name="Components" type="Node" parent="."]
+
+[node name="MovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("_player")]
+script = ExtResource("2_bb46t")
+_player = NodePath("../..")
+_speed = 5.0
+_acceleration = 50.0
+
+[node name="CameraComponent" type="Node" parent="Components" node_paths=PackedStringArray("_player", "_camera")]
+script = ExtResource("3_7q7u4")
+_player = NodePath("../..")
+_camera = NodePath("../../Camera3D")
+_sensitivity = 0.01
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="Placeholder" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_o2amt")
