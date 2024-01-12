@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfli52w5vrmq7"]
+
+[ext_resource type="Material" uid="uid://cmm7bw715nsmp" path="res://materials/dev/debug.tres" id="1_cbv25"]
+[ext_resource type="PackedScene" uid="uid://v67hv5oqxtuk" path="res://scenes/actors/player/player.tscn" id="2_uanbm"]
+
+[node name="Playground" type="Node3D"]
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="GroundPlatform" type="CSGBox3D" parent="World"]
+material_override = ExtResource("1_cbv25")
+use_collision = true
+size = Vector3(50, 0.1, 50)
+
+[node name="Player" parent="." instance=ExtResource("2_uanbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010519, 0.00858581, -0.00252104)
