@@ -4,20 +4,19 @@
 [ext_resource type="Script" path="res://scenes/actors/player/PlayerMovementComponent.cs" id="2_bb46t"]
 [ext_resource type="Script" path="res://scenes/actors/player/PlayerCameraComponent.cs" id="3_7q7u4"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tcg8s"]
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o2amt"]
+radius = 0.25
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rs2sp"]
+radius = 0.25
+height = 1.0
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_lcymy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_tcg8s")
-
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62261, 0)
-fov = 90.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="Components" type="Node" parent="."]
 
@@ -36,5 +35,9 @@ _sensitivity = 0.01
 [node name="Visual" type="Node3D" parent="."]
 
 [node name="Placeholder" type="MeshInstance3D" parent="Visual"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("CapsuleMesh_o2amt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_rs2sp")

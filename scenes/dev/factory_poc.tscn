@@ -1,0 +1,814 @@
+[gd_scene load_steps=13 format=3 uid="uid://vp3a8ohibpx2"]
+
+[ext_resource type="PackedScene" uid="uid://vqavojodwqg4" path="res://assets/conveyor_kit/floor.glb" id="2_2qk4j"]
+[ext_resource type="PackedScene" uid="uid://bag6ifnddkdc2" path="res://assets/conveyor_kit/structure-wall.glb" id="3_gshav"]
+[ext_resource type="PackedScene" uid="uid://bnpogqop0mr23" path="res://assets/conveyor_kit/top.glb" id="3_kj0e0"]
+[ext_resource type="PackedScene" uid="uid://bnvsh852cyye0" path="res://scenes/conveyor/conveyor_low.tscn" id="3_o236a"]
+[ext_resource type="PackedScene" uid="uid://0lweaxvut5bt" path="res://assets/conveyor_kit/cover.glb" id="4_xqcth"]
+[ext_resource type="PackedScene" uid="uid://y7sow1mln3h3" path="res://assets/conveyor_kit/box-large.glb" id="5_aym1x"]
+[ext_resource type="PackedScene" uid="uid://ngcvcprwcrh7" path="res://assets/conveyor_kit/structure-doorway.glb" id="5_fajkv"]
+[ext_resource type="PackedScene" uid="uid://cghjfvhkueflq" path="res://assets/conveyor_kit/structure-window-wide.glb" id="7_b3pb7"]
+[ext_resource type="PackedScene" uid="uid://b8ingl1opchsi" path="res://assets/conveyor_kit/structure-window.glb" id="8_ih8wi"]
+[ext_resource type="Script" path="res://scenes/actors/player/OrthographicPlayer.cs" id="10_n5uer"]
+[ext_resource type="PackedScene" uid="uid://nt38yj250bck" path="res://scenes/actors/player/orthographic_player.tscn" id="11_kumbw"]
+
+[sub_resource type="Environment" id="Environment_6f60u"]
+background_energy_multiplier = 0.6
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("10_n5uer")
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="floor2" parent="Level" instance=ExtResource("2_2qk4j")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="roof" parent="Level" instance=ExtResource("3_kj0e0")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 6, 0)
+visible = false
+
+[node name="conveyor_low" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low/structure-short2" index="11"]
+visible = false
+
+[node name="conveyor2" parent="Level/conveyor_low/structure-short2" index="12"]
+visible = false
+
+[node name="conveyor_low2" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low2/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low2/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low2/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low2/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low2/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low2/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low2/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low2/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low2/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low2/structure-short2" index="11"]
+visible = false
+
+[node name="conveyor2" parent="Level/conveyor_low2/structure-short2" index="12"]
+visible = false
+
+[node name="conveyor_low3" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low3/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low3/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low3/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low3/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low3/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low3/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low3/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low3/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low3/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low3/structure-short2" index="11"]
+visible = false
+
+[node name="conveyor2" parent="Level/conveyor_low3/structure-short2" index="12"]
+visible = false
+
+[node name="conveyor_low4" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 3)
+
+[node name="conveyor-bars-fence" parent="Level/conveyor_low4/structure-short2" index="1"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low4/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low4/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low4/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low4/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low4/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low4/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low4/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low4/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low4/structure-short2" index="11"]
+visible = false
+
+[node name="conveyor2" parent="Level/conveyor_low4/structure-short2" index="12"]
+visible = false
+
+[node name="conveyor_low5" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 2)
+
+[node name="conveyor-bars-fence" parent="Level/conveyor_low5/structure-short2" index="1"]
+visible = false
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low5/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low5/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low5/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low5/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low5/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low5/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low5/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low5/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low5/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low5/structure-short2" index="11"]
+visible = false
+
+[node name="conveyor_low6" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 1)
+
+[node name="conveyor-bars-fence" parent="Level/conveyor_low6/structure-short2" index="1"]
+visible = false
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low6/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low6/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low6/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low6/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low6/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low6/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low6/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low6/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low6/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low6/structure-short2" index="11"]
+visible = false
+
+[node name="conveyor_low7" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 0)
+
+[node name="conveyor-bars-fence" parent="Level/conveyor_low7/structure-short2" index="1"]
+visible = false
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low7/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low7/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low7/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low7/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low7/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low7/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low7/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low7/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low7/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low7/structure-short2" index="11"]
+visible = false
+
+[node name="cover2" parent="Level" instance=ExtResource("4_xqcth")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0.565488, 0)
+
+[node name="box-large2" parent="Level" instance=ExtResource("5_aym1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.903769, 1.49579)
+
+[node name="conveyor_low8" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 3.48069, 3)
+
+[node name="structure-short2" parent="Level/conveyor_low8" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -2.15082, -2.47319, -1.25963)
+
+[node name="conveyor-bars-fence" parent="Level/conveyor_low8/structure-short2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.95949e-09, 0.454709, 0)
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low8/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low8/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low8/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low8/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low8/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low8/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low8/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low8/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low8/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low8/structure-short2" index="11"]
+visible = false
+
+[node name="conveyor2" parent="Level/conveyor_low8/structure-short2" index="12"]
+visible = false
+
+[node name="conveyor_low15" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -1, 3.48069, 3)
+
+[node name="structure-short2" parent="Level/conveyor_low15" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -3.11025, -2.47319, -0.260453)
+
+[node name="conveyor-bars-fence" parent="Level/conveyor_low15/structure-short2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.454709, 0)
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low15/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low15/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low15/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low15/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low15/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low15/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low15/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low15/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low15/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low15/structure-short2" index="11"]
+visible = false
+
+[node name="conveyor2" parent="Level/conveyor_low15/structure-short2" index="12"]
+visible = false
+
+[node name="conveyor_low16" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -2, 3.48069, 3)
+
+[node name="structure-short2" parent="Level/conveyor_low16" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -4.06968, -2.47319, 0.738725)
+
+[node name="conveyor-bars-fence" parent="Level/conveyor_low16/structure-short2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.454709, 0)
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low16/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low16/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low16/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low16/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low16/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low16/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low16/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low16/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low16/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low16/structure-short2" index="11"]
+visible = false
+
+[node name="conveyor2" parent="Level/conveyor_low16/structure-short2" index="12"]
+visible = false
+
+[node name="conveyor_low17" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -3, 3.48069, 3)
+
+[node name="structure-short2" parent="Level/conveyor_low17" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -5.02911, -2.47319, 1.7379)
+
+[node name="conveyor-bars-fence" parent="Level/conveyor_low17/structure-short2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.454709, 0)
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low17/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low17/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low17/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low17/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low17/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low17/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low17/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low17/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low17/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low17/structure-short2" index="11"]
+visible = false
+
+[node name="conveyor2" parent="Level/conveyor_low17/structure-short2" index="12"]
+visible = false
+
+[node name="conveyor_low9" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 1, 3.48069, 3)
+
+[node name="structure-short2" parent="Level/conveyor_low9" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -1.19138, -2.51848, -2.25881)
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low9/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low9/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low9/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low9/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low9/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low9/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low9/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low9/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low9/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low9/structure-short2" index="11"]
+visible = false
+
+[node name="conveyor2" parent="Level/conveyor_low9/structure-short2" index="12"]
+visible = false
+
+[node name="CollisionShape3D" parent="Level/conveyor_low9/StaticBody3D" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -1.19138, -2.06084, -2.25881)
+
+[node name="conveyor_low10" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 2, 3.48069, 3)
+
+[node name="structure-short2" parent="Level/conveyor_low10" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -0.231952, -2.51848, -3.25798)
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low10/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low10/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low10/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low10/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low10/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low10/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low10/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low10/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low10/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low10/structure-short2" index="11"]
+visible = false
+
+[node name="conveyor2" parent="Level/conveyor_low10/structure-short2" index="12"]
+visible = false
+
+[node name="CollisionShape3D" parent="Level/conveyor_low10/StaticBody3D" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -0.231952, -2.06084, -3.25798)
+
+[node name="conveyor_low11" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, 3, 3.48069, 3)
+
+[node name="structure-short2" parent="Level/conveyor_low11" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -4.25716, -2.51848, -0.727479)
+
+[node name="conveyor-bars-fence" parent="Level/conveyor_low11/structure-short2" index="1"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low11/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low11/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low11/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low11/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low11/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low11/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low11/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low11/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low11/structure-short2" index="11"]
+visible = false
+
+[node name="conveyor2" parent="Level/conveyor_low11/structure-short2" index="12"]
+visible = false
+
+[node name="CollisionShape3D" parent="Level/conveyor_low11/StaticBody3D" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -4.25716, -2.06084, -0.727474)
+
+[node name="conveyor_low12" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, 3, 3.48069, 2)
+
+[node name="structure-short2" parent="Level/conveyor_low12" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -3.29773, -2.51848, -1.72666)
+
+[node name="conveyor-bars-fence" parent="Level/conveyor_low12/structure-short2" index="1"]
+visible = false
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low12/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low12/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low12/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low12/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low12/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low12/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low12/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low12/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low12/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low12/structure-short2" index="11"]
+visible = false
+
+[node name="CollisionShape3D" parent="Level/conveyor_low12/StaticBody3D" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -3.29773, -2.06084, -1.72666)
+
+[node name="conveyor_low13" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, 3, 3.48069, 1)
+
+[node name="structure-short2" parent="Level/conveyor_low13" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -2.3383, -2.51848, -2.72583)
+
+[node name="conveyor-bars-fence" parent="Level/conveyor_low13/structure-short2" index="1"]
+visible = false
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low13/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low13/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low13/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low13/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low13/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low13/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low13/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low13/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low13/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low13/structure-short2" index="11"]
+visible = false
+
+[node name="CollisionShape3D" parent="Level/conveyor_low13/StaticBody3D" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -2.3383, -2.06084, -2.72583)
+
+[node name="conveyor_low14" parent="Level" instance=ExtResource("3_o236a")]
+transform = Transform3D(4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, 3, 3.48069, 0)
+
+[node name="structure-short2" parent="Level/conveyor_low14" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -1.37886, -2.51848, -3.72501)
+
+[node name="conveyor-bars-fence" parent="Level/conveyor_low14/structure-short2" index="1"]
+visible = false
+
+[node name="conveyor-bars-high" parent="Level/conveyor_low14/structure-short2" index="2"]
+visible = false
+
+[node name="conveyor-bars-sides" parent="Level/conveyor_low14/structure-short2" index="3"]
+visible = false
+
+[node name="conveyor-bars-stripe-fence" parent="Level/conveyor_low14/structure-short2" index="4"]
+visible = false
+
+[node name="conveyor-bars-stripe-high" parent="Level/conveyor_low14/structure-short2" index="5"]
+visible = false
+
+[node name="conveyor-bars-stripe-side" parent="Level/conveyor_low14/structure-short2" index="6"]
+visible = false
+
+[node name="conveyor-bars-stripe2" parent="Level/conveyor_low14/structure-short2" index="7"]
+visible = false
+
+[node name="conveyor-bars2" parent="Level/conveyor_low14/structure-short2" index="8"]
+visible = false
+
+[node name="conveyor-sides" parent="Level/conveyor_low14/structure-short2" index="9"]
+visible = false
+
+[node name="conveyor-stripe-sides" parent="Level/conveyor_low14/structure-short2" index="10"]
+visible = false
+
+[node name="conveyor-stripe2" parent="Level/conveyor_low14/structure-short2" index="11"]
+visible = false
+
+[node name="CollisionShape3D" parent="Level/conveyor_low14/StaticBody3D" index="0"]
+transform = Transform3D(0.0405677, 8.38762e-08, -0.999177, 8.38762e-08, 1, 8.73508e-08, 0.999177, -8.73508e-08, 0.0405677, -1.37886, -2.06084, -3.72501)
+
+[node name="cover3" parent="Level" instance=ExtResource("4_xqcth")]
+transform = Transform3D(0.999177, -1.50872e-07, 0.0405676, -1.50996e-07, -1, -3.57036e-15, 0.0405676, -6.12553e-09, -0.999177, -0.470397, 5.44947, -1.37886)
+
+[node name="structure-wall2" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+visible = false
+
+[node name="structure-wall8" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3, 6)
+visible = false
+
+[node name="structure-wall9" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 3, 6)
+visible = false
+
+[node name="structure-wall10" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 3, 6)
+visible = false
+
+[node name="structure-wall11" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 3, 6)
+visible = false
+
+[node name="structure-wall12" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 3, 6)
+visible = false
+
+[node name="structure-wall13" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 3, 6)
+visible = false
+
+[node name="structure-wall15" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 3, 6)
+visible = false
+
+[node name="structure-wall17" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 3, 6)
+visible = false
+
+[node name="structure-wall16" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 3, 6)
+visible = false
+
+[node name="structure-wall3" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5)
+visible = false
+
+[node name="structure-wall4" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 5)
+visible = false
+
+[node name="structure-wall5" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 5)
+visible = false
+
+[node name="structure-wall6" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 5)
+visible = false
+
+[node name="structure-wall7" parent="Level" instance=ExtResource("3_gshav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98067, 0, 5)
+visible = false
+
+[node name="structure-window-wide2" parent="Level" instance=ExtResource("7_b3pb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4941, 0, 5)
+visible = false
+
+[node name="structure-window2" parent="Level" instance=ExtResource("8_ih8wi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97184, 0, 5)
+visible = false
+
+[node name="structure-doorway2" parent="Level" instance=ExtResource("5_fajkv")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 2, 6, 4.91764)
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
+environment = SubResource("Environment_6f60u")
+
+[node name="OrthographicPlayer" parent="." instance=ExtResource("11_kumbw")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 1, 0)
+
+[node name="CameraComponent" parent="OrthographicPlayer/Components" index="0"]
+_maxZoom = 50.0
+_minZoom = 10.0
+
+[node name="Camera3D" parent="OrthographicPlayer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 50, 50)
+size = 33.077
+
+[editable path="Level/conveyor_low"]
+[editable path="Level/conveyor_low2"]
+[editable path="Level/conveyor_low3"]
+[editable path="Level/conveyor_low4"]
+[editable path="Level/conveyor_low5"]
+[editable path="Level/conveyor_low6"]
+[editable path="Level/conveyor_low7"]
+[editable path="Level/conveyor_low8"]
+[editable path="Level/conveyor_low15"]
+[editable path="Level/conveyor_low16"]
+[editable path="Level/conveyor_low17"]
+[editable path="Level/conveyor_low9"]
+[editable path="Level/conveyor_low10"]
+[editable path="Level/conveyor_low11"]
+[editable path="Level/conveyor_low12"]
+[editable path="Level/conveyor_low13"]
+[editable path="Level/conveyor_low14"]
+[editable path="OrthographicPlayer"]
