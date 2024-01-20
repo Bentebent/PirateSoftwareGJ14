@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpfo00q3j184l"]
+
+[ext_resource type="Script" path="res://scenes/actors/portal/Portal.cs" id="1_5birf"]
+[ext_resource type="Shader" path="res://scenes/actors/portal/PortalShader.gdshader" id="2_vb6fb"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x20vd"]
+viewport_path = NodePath("CameraViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u7m5w"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_vb6fb")
+shader_parameter/texture_albedo = SubResource("ViewportTexture_x20vd")
+
+[node name="Portal" type="Area3D" node_paths=PackedStringArray("_camera", "_viewport", "_visual")]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_5birf")
+_camera = NodePath("CameraViewport/Camera3D")
+_viewport = NodePath("CameraViewport")
+_visual = NodePath("PortalVisual")
+_cullLayer = 4
+
+[node name="PortalVisual" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15)
+size = Vector3(1, 2, 0.3)
+material = SubResource("ShaderMaterial_u7m5w")
+
+[node name="CameraViewport" type="SubViewport" parent="."]
+render_target_update_mode = 3
+
+[node name="Camera3D" type="Camera3D" parent="CameraViewport"]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
