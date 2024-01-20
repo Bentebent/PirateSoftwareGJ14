@@ -73,12 +73,17 @@ public partial class Portal : Area3D
 
                 _player.GlobalTransform = targetTransform;
 
-               var r = _exit.GlobalTransform.Basis.GetEuler() - GlobalTransform.Basis.GetEuler();
-               player.Velocity = player
-                   .Velocity.Rotated(new Vector3(1, 0, 0), r.X)
-                   .Rotated(new Vector3(0, 1, 0), r.Y)
-                   .Rotated(new Vector3(0, 0, 1), r.Z);
+                var r = _exit.GlobalTransform.Basis.GetEuler() - GlobalTransform.Basis.GetEuler();
+                player.Velocity = player
+                    .Velocity.Rotated(new Vector3(1, 0, 0), r.X)
+                    .Rotated(new Vector3(0, 1, 0), r.Y)
+                    .Rotated(new Vector3(0, 0, 1), r.Z);
 
+                if (!player.UpDirection.IsEqualApprox(player.GlobalTransform.Basis.Y))
+                {
+                    player.UpDirection = player.GlobalTransform.Basis.Y;
+                    player.Velocity -= player.Velocity * player.UpDirection.Normalized();
+                }
                 _exit.DoThing();
             }
 

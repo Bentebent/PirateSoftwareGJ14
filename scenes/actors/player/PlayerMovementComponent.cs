@@ -46,54 +46,51 @@ public partial class PlayerMovementComponent : Node
         if (direction != Vector3.Zero)
         {
             direction = direction.Normalized();
-            vel.X = direction.X * _speed;
-            vel.Z = direction.Z * _speed;
+            vel = direction * _speed;
+            //vel += _player.Transform.Basis.X.Normalized() * direction * _speed;
+            //vel += _player.Transform.Basis.Z.Normalized() * direction * _speed;
+            //vel.X = direction.X * _speed;
+            //vel.Z = direction.Z * _speed;
+            //vel = _player.GlobalTransform.Basis * direction * _speed;
         }
         else
         {
-            vel.X = Mathf.MoveToward(_player.Velocity.X, 0.0f, (float)delta * _acceleration);
-            vel.Z = Mathf.MoveToward(_player.Velocity.Z, 0.0f, (float)delta * _acceleration);
+            if (vel.X != 0.0f)
+            {
+                vel.X = Mathf.MoveToward(_player.Velocity.X, 0.0f, (float)delta * _acceleration);
+            }
+
+            if (vel.Y != 0.0f)
+            {
+                vel.Y = Mathf.MoveToward(_player.Velocity.Y, 0.0f, (float)delta * _acceleration);
+            }
+
+            if (vel.Z != 0.0f)
+            {
+                vel.Z = Mathf.MoveToward(_player.Velocity.Z, 0.0f, (float)delta * _acceleration);
+            }
         }
 
-        //       float yVel = _player.Velocity.Y;
-        //       if (_player.IsOnFloor())
-        //       {
-        //           if (Input.IsActionJustPressed("jump"))
-        //           {
-        //               yVel = 10.5f;
-        //           }
-        //       }
-        //       else
-        //       {
-        //           yVel -= 9.82f;
-        //       }
-
-        //       _targetVelocity.X = direction.X * _speed;
-        //       _targetVelocity.Z = direction.Z * _speed;
-
-        //       _player.Velocity = _player.Velocity.MoveToward(
-        //           _targetVelocity,
-        //           (float)(delta * _acceleration)
-        //       );
-
-        //        _player.Velocity = new Vector3(_player.Velocity.X, yVel, _player.Velocity.Z);
-
-
+        Vector3 oldVel = _player.Velocity;
+        _player.Velocity =
+            vel
+            + (oldVel * _player.GlobalTransform.Basis.Y * _player.GlobalTransform.Basis.Y.Sign());
 
         if (_player.IsOnFloor())
         {
             if (Input.IsActionJustPressed("jump"))
             {
-                vel.Y = 4.5f;
+                _player.Velocity +=
+                    (oldVel * _player.GlobalTransform.Basis.Y)
+                    + _player.GlobalTransform.Basis.Y.Sign() * 4.5f;
             }
         }
         else
         {
-            int up = Mathf.Sign(Vector3.Up.Dot(_player.GlobalTransform.Basis.Y));
-            vel.Y = _player.Velocity.Y - up * 9.82f * (float)delta;
+            _player.Velocity =
+                _player.Velocity
+                - (_player.GlobalTransform.Basis.Y.Normalized() * 9.82f * (float)delta);
         }
-
-        _player.Velocity = vel;
         _player.MoveAndSlide();
     }
 }
