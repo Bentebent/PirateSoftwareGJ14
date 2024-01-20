@@ -1,80 +1,250 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfli52w5vrmq7"]
+[gd_scene load_steps=7 format=3 uid="uid://dfli52w5vrmq7"]
 
 [ext_resource type="Material" uid="uid://b7xciltqaa0ov" path="res://materials/dev/grid_dark.tres" id="1_2745j"]
-[ext_resource type="Material" uid="uid://bnsj42fm72l1h" path="res://materials/dev/grid_purple.tres" id="2_mcfug"]
+[ext_resource type="Script" path="res://addons/proto_shape/proto_ramp/proto_ramp.gd" id="2_ti2pq"]
 [ext_resource type="PackedScene" uid="uid://v67hv5oqxtuk" path="res://scenes/actors/player/player.tscn" id="2_uanbm"]
-[ext_resource type="Shader" path="res://scenes/actors/portal/PortalShader.gdshader" id="5_kqjfm"]
-[ext_resource type="PackedScene" uid="uid://cpfo00q3j184l" path="res://scenes/actors/portal/Portal.tscn" id="6_slj6l"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_giaxo"]
+[ext_resource type="PackedScene" uid="uid://cpfo00q3j184l" path="res://scenes/actors/portal/Portal.tscn" id="3_g7yuy"]
+[ext_resource type="Material" uid="uid://bnsj42fm72l1h" path="res://materials/dev/grid_purple.tres" id="4_0igtq"]
 
 [sub_resource type="Environment" id="Environment_wgbbx"]
 background_energy_multiplier = 3.53
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 4.35
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4sdyc"]
-viewport_path = NodePath("Portal/CameraViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dubf8"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("5_kqjfm")
-shader_parameter/texture_albedo = SubResource("ViewportTexture_4sdyc")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_bh3wq"]
-viewport_path = NodePath("Portal2/CameraViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l7qw5"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("5_kqjfm")
-shader_parameter/texture_albedo = SubResource("ViewportTexture_bh3wq")
-
 [node name="Playground" type="Node3D"]
 
 [node name="World" type="Node3D" parent="."]
 
 [node name="BasePlatform" type="CSGBox3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0378845, -9.34475)
 use_collision = true
-size = Vector3(30.545, 0, 43.016)
+size = Vector3(5, 0, 5)
 material = ExtResource("1_2745j")
 
-[node name="Cube" type="MeshInstance3D" parent="World/BasePlatform"]
-transform = Transform3D(1.0104, -0.319422, -0.167578, 0.340588, 0.947612, -0.0564875, 0.153176, 0, 1.23101, -6.80037, 0.269949, 6.74056)
-mesh = SubResource("BoxMesh_giaxo")
+[node name="Stairs" type="Node3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4988)
 
-[node name="SmallTunnel" type="CSGCombiner3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.374054, -9.34475)
+[node name="ProtoRamp" type="CSGCombiner3D" parent="World/Stairs"]
+use_collision = true
+script = ExtResource("2_ti2pq")
+type = 0
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="World/SmallTunnel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.83441, 2.07137, -0.696251)
-size = Vector3(3.13248, 3.65134, 2.30957)
-material = ExtResource("2_mcfug")
+[node name="ProtoRamp2" type="CSGCombiner3D" parent="World/Stairs"]
+script = ExtResource("2_ti2pq")
+type = 1
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
+calculation = 0
+steps = 8
+fill = true
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="World/SmallTunnel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75642, 1.82559, -0.838799)
-operation = 2
-size = Vector3(1.98824, 3.00426, 2.79071)
-material = ExtResource("2_mcfug")
+[node name="Stairs2" type="Node3D" parent="World"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -2.49116)
 
-[node name="BigTunnel" type="CSGCombiner3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5971, -0.361757, -9.3374)
+[node name="ProtoRamp" type="CSGCombiner3D" parent="World/Stairs2"]
+use_collision = true
+script = ExtResource("2_ti2pq")
+type = 0
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="World/BigTunnel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.83751, 2.20987, -3.74807)
-size = Vector3(2.98327, 3.92835, 14.1884)
-material = ExtResource("2_mcfug")
+[node name="ProtoRamp2" type="CSGCombiner3D" parent="World/Stairs2"]
+script = ExtResource("2_ti2pq")
+type = 1
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
+calculation = 0
+steps = 8
+fill = true
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="World/BigTunnel"]
-transform = Transform3D(0.815702, 0, 0, 0, 0.927045, 0, 0, 0, 1, -6.75526, 1.72754, -3.7349)
-operation = 2
-size = Vector3(2.39071, 3.31608, 14.2904)
-material = ExtResource("2_mcfug")
+[node name="Portal" parent="World/Stairs2" node_paths=PackedStringArray("_exit") instance=ExtResource("3_g7yuy")]
+transform = Transform3D(-1, -7.64274e-15, -8.74228e-08, 0, -1, 8.74228e-08, -8.74228e-08, 8.74228e-08, 1, -3.04861e-07, 2.97933, 3.4872)
+_exit = NodePath("../../../World2/Stairs2/Portal")
+_cullLayer = 4
+
+[node name="Stairs3" type="Node3D" parent="World"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.48433, 0, 0)
+
+[node name="ProtoRamp" type="CSGCombiner3D" parent="World/Stairs3"]
+use_collision = true
+script = ExtResource("2_ti2pq")
+type = 0
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
+
+[node name="ProtoRamp2" type="CSGCombiner3D" parent="World/Stairs3"]
+script = ExtResource("2_ti2pq")
+type = 1
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
+calculation = 0
+steps = 8
+fill = true
+
+[node name="Stairs4" type="Node3D" parent="World"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.50495, 0, 0)
+
+[node name="ProtoRamp" type="CSGCombiner3D" parent="World/Stairs4"]
+use_collision = true
+script = ExtResource("2_ti2pq")
+type = 0
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
+
+[node name="ProtoRamp2" type="CSGCombiner3D" parent="World/Stairs4"]
+script = ExtResource("2_ti2pq")
+type = 1
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
+calculation = 0
+steps = 8
+fill = true
+
+[node name="World2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 9.28702, 0)
+
+[node name="BasePlatform" type="CSGBox3D" parent="World2"]
+use_collision = true
+size = Vector3(5, 0, 5)
+material = ExtResource("4_0igtq")
+
+[node name="BasePlatform2" type="CSGBox3D" parent="World2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.48479, -4.49693e-07)
+use_collision = true
+size = Vector3(1, 0.374023, 1)
+material = ExtResource("1_2745j")
+
+[node name="Stairs" type="Node3D" parent="World2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4988)
+
+[node name="ProtoRamp" type="CSGCombiner3D" parent="World2/Stairs"]
+use_collision = true
+script = ExtResource("2_ti2pq")
+type = 0
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
+
+[node name="ProtoRamp2" type="CSGCombiner3D" parent="World2/Stairs"]
+script = ExtResource("2_ti2pq")
+type = 1
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
+calculation = 0
+steps = 8
+fill = true
+
+[node name="Stairs2" type="Node3D" parent="World2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -2.49116)
+
+[node name="ProtoRamp" type="CSGCombiner3D" parent="World2/Stairs2"]
+use_collision = true
+script = ExtResource("2_ti2pq")
+type = 0
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
+
+[node name="ProtoRamp2" type="CSGCombiner3D" parent="World2/Stairs2"]
+script = ExtResource("2_ti2pq")
+type = 1
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
+calculation = 0
+steps = 8
+fill = true
+
+[node name="Portal" parent="World2/Stairs2" node_paths=PackedStringArray("_exit") instance=ExtResource("3_g7yuy")]
+transform = Transform3D(1, -8.74228e-08, -8.74228e-08, -8.74228e-08, -1, 0, -8.74228e-08, 7.10543e-15, -1, -2.7961e-07, 2.99586, 3.19836)
+_exit = NodePath("../../../World/Stairs2/Portal")
+_cullLayer = 3
+
+[node name="Stairs3" type="Node3D" parent="World2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.48433, 0, 0)
+
+[node name="ProtoRamp" type="CSGCombiner3D" parent="World2/Stairs3"]
+use_collision = true
+script = ExtResource("2_ti2pq")
+type = 0
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
+
+[node name="ProtoRamp2" type="CSGCombiner3D" parent="World2/Stairs3"]
+script = ExtResource("2_ti2pq")
+type = 1
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
+calculation = 0
+steps = 8
+fill = true
+
+[node name="Stairs4" type="Node3D" parent="World2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.50495, 0, 0)
+
+[node name="ProtoRamp" type="CSGCombiner3D" parent="World2/Stairs4"]
+use_collision = true
+script = ExtResource("2_ti2pq")
+type = 0
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
+
+[node name="ProtoRamp2" type="CSGCombiner3D" parent="World2/Stairs4"]
+script = ExtResource("2_ti2pq")
+type = 1
+width = 1.0
+height = 2.001
+depth = 3.501
+anchor = 0
+anchor_fixed = true
+calculation = 0
+steps = 8
+fill = true
 
 [node name="Player" parent="." instance=ExtResource("2_uanbm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010519, 0.219375, 9.49714)
 
 [node name="PortalPair" type="Node3D" parent="."]
 visible = false
@@ -84,25 +254,3 @@ environment = SubResource("Environment_wgbbx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.806635, 0.586157, -0.0758896, -0.471375, 0.715446, 0.515696, 0.356574, -0.380206, 0.853404, 0, 2.56685, 0)
-
-[node name="Portal" parent="." node_paths=PackedStringArray("_exit") instance=ExtResource("6_slj6l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.73662, 0.97493, -8.90405)
-_exit = NodePath("../Portal2")
-_cullLayer = 3
-
-[node name="PortalVisual" parent="Portal" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0160313, 0.485718, -0.15)
-size = Vector3(1.98717, 2.98657, 0.3)
-material = SubResource("ShaderMaterial_dubf8")
-
-[node name="Portal2" parent="." node_paths=PackedStringArray("_exit") instance=ExtResource("6_slj6l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.76613, 1.03538, -5.99045)
-_exit = NodePath("../Portal")
-
-[node name="PortalVisual" parent="Portal2" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0813904, 0.404625, -0.15)
-size = Vector3(1.9422, 2.94127, 0.3)
-material = SubResource("ShaderMaterial_l7qw5")
-
-[editable path="Portal"]
-[editable path="Portal2"]

@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-public partial class PlayerMovementComponent : Node 
+public partial class PlayerMovementComponent : Node
 {
     [Export]
     private Player _player = null;
@@ -42,19 +42,58 @@ public partial class PlayerMovementComponent : Node
             direction += _player.GlobalTransform.Basis.X;
         }
 
+        Vector3 vel = Vector3.Zero;
         if (direction != Vector3.Zero)
         {
             direction = direction.Normalized();
+            vel.X = direction.X * _speed;
+            vel.Z = direction.Z * _speed;
+        }
+        else
+        {
+            vel.X = Mathf.MoveToward(_player.Velocity.X, 0.0f, (float)delta * _acceleration);
+            vel.Z = Mathf.MoveToward(_player.Velocity.Z, 0.0f, (float)delta * _acceleration);
         }
 
-        _targetVelocity.X = direction.X * _speed;
-        _targetVelocity.Z = direction.Z * _speed;
+        //       float yVel = _player.Velocity.Y;
+        //       if (_player.IsOnFloor())
+        //       {
+        //           if (Input.IsActionJustPressed("jump"))
+        //           {
+        //               yVel = 10.5f;
+        //           }
+        //       }
+        //       else
+        //       {
+        //           yVel -= 9.82f;
+        //       }
 
-        _player.Velocity = _player.Velocity.MoveToward(
-            _targetVelocity,
-            (float)(delta * _acceleration)
-        );
+        //       _targetVelocity.X = direction.X * _speed;
+        //       _targetVelocity.Z = direction.Z * _speed;
 
+        //       _player.Velocity = _player.Velocity.MoveToward(
+        //           _targetVelocity,
+        //           (float)(delta * _acceleration)
+        //       );
+
+        //        _player.Velocity = new Vector3(_player.Velocity.X, yVel, _player.Velocity.Z);
+
+
+
+        if (_player.IsOnFloor())
+        {
+            if (Input.IsActionJustPressed("jump"))
+            {
+                vel.Y = 4.5f;
+            }
+        }
+        else
+        {
+            int up = Mathf.Sign(Vector3.Up.Dot(_player.GlobalTransform.Basis.Y));
+            vel.Y = _player.Velocity.Y - up * 9.82f * (float)delta;
+        }
+
+        _player.Velocity = vel;
         _player.MoveAndSlide();
     }
 }

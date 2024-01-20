@@ -12,8 +12,10 @@ height = 1.0
 radius = 0.25
 height = 1.0
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Camera")]
+floor_stop_on_slope = false
 script = ExtResource("1_lcymy")
+Camera = NodePath("Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)

@@ -25,7 +25,7 @@ public partial class PlayerCameraComponent : Node
         {
             InputEventMouseMotion mouseMotion = (InputEventMouseMotion)@event;
             RotateMe(mouseMotion.Relative);
-            _player.RotateY(-mouseMotion.Relative.X * _sensitivity);
+            _player.Rotate(_player.GlobalTransform.Basis.Y, -mouseMotion.Relative.X * _sensitivity);
         }
     }
 
