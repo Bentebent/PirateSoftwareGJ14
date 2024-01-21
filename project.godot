@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PirateSoftwareGJ14"
-run/main_scene="res://scenes/dev/playground.tscn"
+run/main_scene="res://scenes/level_one.tscn"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 

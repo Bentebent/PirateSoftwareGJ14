@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpfo00q3j184l"]
+[gd_scene load_steps=7 format=3 uid="uid://cpfo00q3j184l"]
 
 [ext_resource type="Script" path="res://scenes/actors/portal/Portal.cs" id="1_5birf"]
 [ext_resource type="Shader" path="res://scenes/actors/portal/PortalShader.gdshader" id="2_vb6fb"]
+[ext_resource type="Material" uid="uid://bnsj42fm72l1h" path="res://materials/dev/grid_purple.tres" id="3_ynsg3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_aj6dl"]
 viewport_path = NodePath("CameraViewport")
@@ -29,13 +30,29 @@ size = Vector3(1, 2, 0.3)
 material = SubResource("ShaderMaterial_u7m5w")
 
 [node name="CameraViewport" type="SubViewport" parent="."]
-render_target_update_mode = 3
+render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="CameraViewport"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15)
 shape = SubResource("BoxShape3D_ttar5")
+
+[node name="Frame" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Frame"]
+layers = 4
+material_override = ExtResource("3_ynsg3")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Frame/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -0.175)
+size = Vector3(1.2, 2.1, 0.6)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Frame/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.145645)
+operation = 2
+size = Vector3(1, 2, 1.17354)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

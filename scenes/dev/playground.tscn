@@ -14,6 +14,7 @@ ambient_light_energy = 4.35
 [node name="Playground" type="Node3D"]
 
 [node name="World" type="Node3D" parent="."]
+visible = false
 
 [node name="BasePlatform" type="CSGBox3D" parent="World"]
 use_collision = true
@@ -150,6 +151,7 @@ _cullLayer = 5
 
 [node name="World2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 9.28702, 0)
+visible = false
 
 [node name="BasePlatform" type="CSGBox3D" parent="World2"]
 use_collision = true
